@@ -33,8 +33,8 @@ async function getData(){
 
 // Getting the values and using them in another function 
 async function submitValues(start,end){
-    // const start = document.getElementById("start").value;
-	// const end = document.getElementById("end").value
+    const start = document.getElementById("start").value;
+	const end = document.getElementById("end").value
 	data = [start, end]
 	
     console.log(start,end)
