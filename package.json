@@ -1,0 +1,22 @@
+{
+  "name": "coursework",
+  "version": "1.0.0",
+  "description": "findingtheshortestroute",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "easeljs": "^1.0.2",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "path"
+  ],
+  "author": "Josh",
+  "license": "ISC"
+}
