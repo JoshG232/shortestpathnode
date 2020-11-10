@@ -5,7 +5,8 @@ const Datastore = require("nedb")
 const app = express()
 
 //Setting up the servers port and how it should take in data. so express.json for json format
-app.listen(3000, () => console.log("listening at 3000"))  
+PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log("listening at 3000"))  
 app.use(express.static("public"))                         
 app.use(express.json())
 
