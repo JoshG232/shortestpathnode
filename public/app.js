@@ -9,15 +9,15 @@ function getNode(value){
 	console.log(value)
 }
 
-let graph = {
-	A: { B: 2, C: 3 },
-	B: { A: 2, D: 7, E: 5 },
-	C: { A: 3, F: 4 },
-	D: { B: 7, E: 3, G: 2},
-	E: { B: 5, D: 3, F: 3,G: 1},
-	F: { C: 4, E: 1 ,G: 3},
-	G: { D: 2 ,E: 1 ,F: 3}
-};
+// let graph = {
+// 	A: { B: 2, C: 3 },
+// 	B: { A: 2, D: 7, E: 5 },
+// 	C: { A: 3, F: 4 },
+// 	D: { B: 7, E: 3, G: 2},
+// 	E: { B: 5, D: 3, F: 3,G: 1},
+// 	F: { C: 4, E: 1 ,G: 3},
+// 	G: { D: 2 ,E: 1 ,F: 3}
+// };
 
 function display(savedData){
 	document.getElementById("route").innerHTML = "The route is "+savedData.resultsGET.path
@@ -28,19 +28,19 @@ function display(savedData){
 async function getData(){
 	const response = await fetch("/api")
 	const graph = await response.json()
-	console.log(graph)
+	return graph
 }
 
 // Getting the values and using them in another function 
 async function submitValues(start,end){
-    const start = document.getElementById("start").value;
-	const end = document.getElementById("end").value
+    start = document.getElementById("start").value;
+	end = document.getElementById("end").value
 	data = [start, end]
 	
-    console.log(start,end)
-	findShortestPath(graph, start, end)
+    
 	
-	await getData() //graph ting
+	graph = await getData() //graph ting
+	
 	await findShortestPath(graph, start, end)// route ting
 	
 	savedData = {start, end, resultsGET}
@@ -139,7 +139,6 @@ const findShortestPath = (graph, startNode, endNode) => {
 };
 
 // module.exports = findShortestPath;
-
 
 
 
