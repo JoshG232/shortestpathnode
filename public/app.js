@@ -9,7 +9,7 @@ function getNode(value){
 	console.log(value)
 }
 
-let graph = {
+let graph1 = {
 	A: { B: 2, C: 3 },
 	B: { A: 2, D: 7, E: 5 },
 	C: { A: 3, F: 4 },
@@ -25,11 +25,7 @@ function display(savedData){
 	console.log("done")
 }
 
-async function getData(){
-	const response = await fetch("/api")
-	const graph = await response.json()
-	
-}
+
 
 // Getting the values and using them in another function 
 async function submitValues(start,end){
@@ -39,9 +35,10 @@ async function submitValues(start,end){
 	
     
 	
-	await getData() //graph ting
+	graph = await getData() //graph ting
+	console.log(graph)
 	
-	await findShortestPath(graph, start, end)// route ting
+	findShortestPath(graph[0], start, end)// route ting
 	
 	savedData = {start, end, resultsGET}
 	display(savedData)
@@ -56,6 +53,13 @@ async function submitValues(start,end){
 	}
 	await fetch("/api", options);
 	
+}
+
+async function getData(){
+	const response = await fetch("/api")
+	const graph = await response.json()
+	return graph
+	//fuck the way node gives data back. arrays = poopoohead
 }
 	
 const shortestDistanceNode = (distances, visited) => {
