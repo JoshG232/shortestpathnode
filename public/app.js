@@ -9,15 +9,15 @@ function getNode(value){
 	console.log(value)
 }
 
-// let graph = {
-// 	A: { B: 2, C: 3 },
-// 	B: { A: 2, D: 7, E: 5 },
-// 	C: { A: 3, F: 4 },
-// 	D: { B: 7, E: 3, G: 2},
-// 	E: { B: 5, D: 3, F: 3,G: 1},
-// 	F: { C: 4, E: 1 ,G: 3},
-// 	G: { D: 2 ,E: 1 ,F: 3}
-// };
+let graph = {
+	A: { B: 2, C: 3 },
+	B: { A: 2, D: 7, E: 5 },
+	C: { A: 3, F: 4 },
+	D: { B: 7, E: 3, G: 2},
+	E: { B: 5, D: 3, F: 3,G: 1},
+	F: { C: 4, E: 1 ,G: 3},
+	G: { D: 2 ,E: 1 ,F: 3}
+};
 
 function display(savedData){
 	document.getElementById("route").innerHTML = "The route is "+savedData.resultsGET.path
@@ -28,7 +28,7 @@ function display(savedData){
 async function getData(){
 	const response = await fetch("/api")
 	const graph = await response.json()
-	return graph
+	
 }
 
 // Getting the values and using them in another function 
@@ -39,7 +39,7 @@ async function submitValues(start,end){
 	
     
 	
-	graph = await getData() //graph ting
+	await getData() //graph ting
 	
 	await findShortestPath(graph, start, end)// route ting
 	
